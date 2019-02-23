@@ -11,3 +11,30 @@ build:
     - script:
         name: pwd
         code: pwd
+    - install-packages:
+        packages: maven
+    - script:
+        name: maven build
+        cwd: msa-apidev-mp
+        code: mvn clean package 
+    - npm-install
+    - script:
+        name: install-dredd
+        code: sudo npm install -g dredd --ignore-scripts
+    - script:
+        name: dredd
+        cwd: msa-apidev-mp
+        code: dredd
+        
+#Push the docker image with our built and tested application to the Oracle Container Registry
+push-release:
+  steps:
+    - internal/docker-push:
+        username: $DOCKER_USERNAME
+        password: $OCI_AUTH_TOKEN
+        repository: $DOCKER_REGISTRY/$DOCKER_REPO
+        registry: https://$DOCKER_REGISTRY/v2
+        tag: $WERCKER_GIT_BRANCH-$WERCKER_GIT_COMMIT
+        working-dir: /pipeline/source/msa-apidev-mp
+        ports: 8080
+        cmd: java -jar target/msa-apidev-mp.jar

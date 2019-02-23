@@ -7,5 +7,5 @@ import io.helidon.examples.book.entity.Book;
 
 public interface BookService {
     public List<Book> listAllBook(String title, Integer limit, Integer offset);
-    public Book findBookByid(String id);
+    public Book findBookByid(int id);
 }

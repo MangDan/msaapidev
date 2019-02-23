@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -64,18 +65,18 @@ public class BookRepository {
             while(rs.next()) {
                 Book book = new Book();
                 book.setId(rs.getInt("id"));
-                book.setIsbn(rs.getString("isbn"));
-                book.setTitle(rs.getString("title"));
-                book.setLink(rs.getString("link"));
-                book.setImage(rs.getString("image"));
-                book.setAuthor(rs.getString("author"));
-                book.setPrice(rs.getString("price"));
-                book.setDiscount(rs.getString("discount"));
-                book.setPublisher(rs.getString("publisher"));
-                book.setPubdate(rs.getString("pubdate"));
-                book.setDescription(rs.getString("description"));
-                book.setRatings(rs.getInt("ratings"));
-                book.setReviews(rs.getInt("reviews"));
+                book.setIsbn(Optional.ofNullable(rs.getString("isbn")).orElse(""));
+                book.setTitle(Optional.ofNullable(rs.getString("title")).orElse(""));
+                book.setLink(Optional.ofNullable(rs.getString("link")).orElse(""));
+                book.setImage(Optional.ofNullable(rs.getString("image")).orElse(""));
+                book.setAuthor(Optional.ofNullable(rs.getString("author")).orElse(""));
+                book.setPrice(Optional.ofNullable(rs.getString("price")).orElse(""));
+                book.setDiscount(Optional.ofNullable(rs.getString("discount")).orElse(""));
+                book.setPublisher(Optional.ofNullable(rs.getString("publisher")).orElse(""));
+                book.setPubdate(Optional.ofNullable(rs.getString("pubdate")).orElse(""));
+                book.setDescription(Optional.ofNullable(rs.getString("description")).orElse(""));
+                book.setRatings(Optional.ofNullable(rs.getInt("ratings")).orElse(0));
+                book.setReviews(Optional.ofNullable(rs.getInt("reviews")).orElse(0));
                 
                 bookArray.add(book);
             }
@@ -87,30 +88,30 @@ public class BookRepository {
         return bookArray;
     }
 
-    public Book findBookByid(String id) {
+    public Book findBookByid(int id) {
         Book book = new Book();
 
         try {
             Connection conn = this.dataSource.getConnection();
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM BOOK WHERE ID = ?");
 
-            ps.setString(1, id);
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
             if(rs.next()) {
                 book.setId(rs.getInt("id"));
-                book.setIsbn(rs.getString("isbn"));
-                book.setTitle(rs.getString("title"));
-                book.setLink(rs.getString("link"));
-                book.setImage(rs.getString("image"));
-                book.setAuthor(rs.getString("author"));
-                book.setPrice(rs.getString("price"));
-                book.setDiscount(rs.getString("discount"));
-                book.setPublisher(rs.getString("publisher"));
-                book.setPubdate(rs.getString("pubdate"));
-                book.setDescription(rs.getString("description"));
-                book.setRatings(rs.getInt("ratings"));
-                book.setReviews(rs.getInt("reviews"));
+                book.setIsbn(Optional.ofNullable(rs.getString("isbn")).orElse(""));
+                book.setTitle(Optional.ofNullable(rs.getString("title")).orElse(""));
+                book.setLink(Optional.ofNullable(rs.getString("link")).orElse(""));
+                book.setImage(Optional.ofNullable(rs.getString("image")).orElse(""));
+                book.setAuthor(Optional.ofNullable(rs.getString("author")).orElse(""));
+                book.setPrice(Optional.ofNullable(rs.getString("price")).orElse(""));
+                book.setDiscount(Optional.ofNullable(rs.getString("discount")).orElse(""));
+                book.setPublisher(Optional.ofNullable(rs.getString("publisher")).orElse(""));
+                book.setPubdate(Optional.ofNullable(rs.getString("pubdate")).orElse(""));
+                book.setDescription(Optional.ofNullable(rs.getString("description")).orElse(""));
+                book.setRatings(Optional.ofNullable(rs.getInt("ratings")).orElse(0));
+                book.setReviews(Optional.ofNullable(rs.getInt("reviews")).orElse(0));
             }
 
         } catch (SQLException e) {

@@ -58,7 +58,7 @@ public class BookController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response findBookById(@PathParam("id") String id) {
+    public Response findBookById(@PathParam("id") int id) {
         return Response.ok(bookService.findBookByid(id)).build();
     }
 }

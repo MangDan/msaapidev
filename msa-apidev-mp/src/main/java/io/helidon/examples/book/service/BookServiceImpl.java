@@ -20,7 +20,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findBookByid(String id) {
+    public Book findBookByid(int id) {
         return bookRepo.findBookByid(id);
     }
 }

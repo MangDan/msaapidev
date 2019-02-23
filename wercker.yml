@@ -8,17 +8,17 @@ box:
 #Build our application using Maven, just as we always have
 build:
   steps:
+    - npm-install
+    - script:
+        name: install-dredd
+        code: sudo npm install dredd@8.0.2 --global
+    - script:
+        name: dredd
+        cwd: msa-apidev-mp
+        code: dredd
     - install-packages:
         packages: maven
     - script:
         name: maven build
         cwd: msa-apidev-mp
         code: mvn clean package 
-    - npm-install
-    - script:
-        name: install-dredd
-        code: npm install dredd@8.0.2 --global
-    - script:
-        name: dredd
-        cwd: msa-apidev-mp
-        code: dredd

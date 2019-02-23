@@ -10,5 +10,9 @@ build:
     - install-packages:
         packages: maven
     - script:
-        name: maven build
-        code: mvn clean assembly:assembly
+        cwd: msa-apidev-mp
+        name: pwd
+        code: pwd
+    - script:
+        name: maven package
+        code: mvn clean package

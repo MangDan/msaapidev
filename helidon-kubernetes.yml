@@ -38,6 +38,7 @@ spec:
           protocol: TCP
       imagePullSecrets:
         - name: wercker
+        
 ---
 kind: Service
 apiVersion: v1

@@ -11,7 +11,7 @@ build:
     - npm-install
     - script:
         name: install-dredd
-        code: sudo npm install dredd@8.0.2 --global
+        code: sudo npm install -g dredd --unsafe-perm=true --allow-root
     - script:
         name: dredd
         cwd: msa-apidev-mp

@@ -19,4 +19,5 @@ build:
         code: npm install -g dredd
     - script:
         name: dredd
+        cwd: msa-apidev-mp
         code: dredd

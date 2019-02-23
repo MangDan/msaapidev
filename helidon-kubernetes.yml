@@ -35,11 +35,13 @@ metadata:
   name: msa-apidev-mp
 spec:
   replicas: 2
+  selector:
+    matchLabels:
+      app: msa-apidev-mp
   template:
     metadata:
       labels:
         app: msa-apidev-mp
-        version: v1
         commit: ${WERCKER_GIT_COMMIT}
     spec:
       containers:
@@ -47,6 +49,8 @@ spec:
         image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - name: twitter-feed
+          containerPort: 8080
+          protocol: TCP
       imagePullSecrets:
         - name: wercker

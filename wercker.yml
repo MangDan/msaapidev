@@ -38,3 +38,4 @@ push-release:
         working-dir: /pipeline/source/msa-apidev-mp
         ports: 8080
         cmd: java -jar target/msa-apidev-mp.jar
+

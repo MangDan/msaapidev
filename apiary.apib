@@ -1,0 +1,77 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Books API
+
+도서 정보를 제공하는 API 입니다.
+
+## Books Collection [/books]
+
+### List All Books [GET /books/{?title,offset,limit}]
+
++ Parameters
+    + title (optional) - a book title variable
+    + offset (optional) - start offset
+    + limit (optional) - total count of books
+    
++ Response 200 (application/json)
+
+        [
+            {
+                "author": "Jonathan Lewis",
+                "description": "WHAT IS REALLY INVOLVED IN BUILDING EFFECTIVE <b>ORACLE</b> DATABASE SYSTEMS, AND HOW DO YOU APPROACH THE ENDEAVOR IN A WAY THAT INCREASES YOUR CHANCES FOR SUCCESS? PRACTICAL <b>ORACLE</b>8ITRADE; OFFERS A REAL-LIFE APPROACH TO CONSTRUCTING <b>ORACLE</b> DATABASES--ONE THAT IS GEARED TOWARD... ",
+                "discount": "6830",
+                "id": 14585,
+                "image": "https://bookthumb-phinf.pstatic.net/cover/002/184/00218429.jpg?type=m1&udate=20110429",
+                "isbn": "0201715848 9780201715842",
+                "link": "http://book.naver.com/bookdb/book_detail.php?bid=218429",
+                "price": "68700",
+                "pubdate": "20001201",
+                "publisher": "Addison-Wesley",
+                "title": "Practical <b>Oracle</b> 8i: Building Efficient Databases 005. (Building Efficient Databases)",
+                "reviews" : 121,
+                "ratings" : 4
+            },
+            {
+                "author": "AKIRA HATSUNE",
+                "discount": "14000",
+                "id": 19629,
+                "image": "https://bookthumb-phinf.pstatic.net/cover/002/077/00207763.jpg?type=m1&udate=20130731",
+                "isbn": "8971631015 9788971631010",
+                "link": "http://book.naver.com/bookdb/book_detail.php?bid=207763",
+                "price": "14000",
+                "pubdate": "19991210",
+                "publisher": "대영사",
+                "title": "<b>ORACLE</b> + VISUAL BASIC 정보시스템 구축실무 가이드",
+                "reviews" : 53,
+                "ratings" : 5
+            }
+        ]
+
+
+### Get Book by ID [GET /books/{id}]
+
++ Parameters
+    + id (number) - Book ID
+    
++ Response 200 (application/json)
+    + Attributes (Book)
+        
+
+# Data Structures
+
+## Book (object)
+
++ id : 도서 아이디 (number)
++ title : 도서 제목 (string)
++ author : 도서 저자 (string)
++ image : 표지 (string)
++ link : 책 랭크 (string)
++ price : 가격 (string)
++ discount : 할인 가격 (string)
++ isbn : isbn 번호 (string)
++ pubdate : 출판일자 (string)
++ publisher : 출판사 (string)
++ description : 설명 (string)
++ reviews : 리뷰 (number)
++ ratings : 평가 (number)

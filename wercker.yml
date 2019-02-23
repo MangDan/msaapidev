@@ -8,17 +8,6 @@ box:
 #Build our application using Maven, just as we always have
 build:
   steps:
-    - install-packages:
-        packages: maven
     - script:
-        name: maven build
-        cwd: msa-apidev-mp
-        code: mvn clean package 
-    - npm-install
-    - script:
-        name: install-dredd
-        code: sudo npm install -g dredd --ignore-scripts
-    - script:
-        name: dredd
-        cwd: msa-apidev-mp
-        code: dredd
+        name: pwd
+        code: pwd

@@ -224,10 +224,5 @@
             <groupId>io.helidon.integrations.cdi</groupId>
             <artifactId>helidon-integrations-cdi-datasource-hikaricp</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <version>11.2.0.4</version>
-        </dependency>
     </dependencies>
 </project>

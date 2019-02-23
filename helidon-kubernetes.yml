@@ -48,6 +48,5 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-        imagePullSecrets:
+      imagePullSecrets:
         - name: wercker
----

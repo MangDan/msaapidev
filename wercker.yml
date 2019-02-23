@@ -46,7 +46,6 @@ deploy-to-cluster:
       cmd: /bin/sh
 
   steps:
-
   - bash-template
 
   - kubectl:

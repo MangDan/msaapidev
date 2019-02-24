@@ -18,7 +18,7 @@ apiVersion: extensions/v1beta1
 metadata:
   name: msa-apidev-mp
   labels:
-    commit: 9a8fa77277c4a8c3c96d96d4b804e83c26ac6cc0
+    commit: ${WERCKER_GIT_COMMIT}
 spec:
   replicas: 2
   selector:
@@ -28,11 +28,11 @@ spec:
     metadata:
       labels:
         app: msa-apidev-mp
-        commit: 9a8fa77277c4a8c3c96d96d4b804e83c26ac6cc0
+        commit: ${WERCKER_GIT_COMMIT}
     spec:
       containers:
       - name: msa-apidev-mp
-        image: iad.ocir.io/apackrsct01/msa-apidev-helidon:master-9a8fa77277c4a8c3c96d96d4b804e83c26ac6cc0
+        image: ${DOCKER_REGISTRY}/${DOCKER_REPO}:${WERCKER_GIT_BRANCH}-${WERCKER_GIT_COMMIT}
         imagePullPolicy: Always
         ports:
         - name: msa-apidev-mp
@@ -47,7 +47,7 @@ metadata:
   name: msa-apidev-mp
   labels:
     app: msa-apidev-mp
-    commit: 9a8fa77277c4a8c3c96d96d4b804e83c26ac6cc0
+    commit: ${WERCKER_GIT_COMMIT}
 spec:
   type: NodePort
   selector:

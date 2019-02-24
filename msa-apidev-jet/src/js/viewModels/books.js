@@ -101,7 +101,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'ojs/ojknockout', 'ojs/ojlistview', 
       });
 
       this.collection = new oj.Collection(null, {
-        url: 'http://132.145.161.244:8011/books',
+        //url: 'http://132.145.161.244:8011/books',
+        url: '',
         model: model
       });
       var originalCollection = this.collection;

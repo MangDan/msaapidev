@@ -44,7 +44,7 @@ public class BookRepository {
         
         StringBuffer queryBuffer = new StringBuffer();
         queryBuffer.append("SELECT * FROM (");
-        queryBuffer.append("SELECT p.*, ROW_NUMBER() OVER(ORDER BY id DESC) AS RNUM FROM BOOK p ");
+        queryBuffer.append("SELECT p.*, ROW_NUMBER() OVER(ORDER BY id) AS RNUM FROM BOOK p ");
         queryBuffer.append(clause);
         queryBuffer.append(") WHERE RNUM BETWEEN "+((offset * limit)+1)+" AND "+((offset * limit)+limit));
 

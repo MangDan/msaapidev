@@ -51,7 +51,7 @@ public class BookController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listall(@DefaultValue("") @QueryParam("title") String title, @DefaultValue("0") @QueryParam("offset") Integer offset, @DefaultValue("20") @QueryParam("limit") int limit) {
+    public Response listall(@DefaultValue("") @QueryParam("title") String title, @DefaultValue("0") @QueryParam("offset") Integer offset, @DefaultValue("10") @QueryParam("limit") int limit) {
         return Response.ok(bookService.listAllBook(title, offset, limit)).build();
     }
 

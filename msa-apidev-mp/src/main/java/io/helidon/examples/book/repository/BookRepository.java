@@ -20,8 +20,6 @@ import io.helidon.examples.book.entity.Book;
 public class BookRepository {
 
     private final DataSource dataSource;
-    private final int defaultOffset = 0;
-    private final int defaultLimit = 20;
 
     /**
      * Creates a new {@link TablesResource}.

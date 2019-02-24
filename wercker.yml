@@ -64,11 +64,11 @@ deploy-to-cluster:
 
   - script:
       name: "Visualise Kubernetes config"
-      code: cat helidon-kubernetes.yml
+      code: cat kubernetes.yml
 
   - kubectl:
       name: deploy msa-apidev-mp to kubernetes
       server: $KUBERNETES_MASTER
       token: $KUBERNETES_AUTH_TOKEN
       insecure-skip-tls-verify: true
-      command: apply -f helidon-kubernetes.yml
+      command: apply -f kubernetes.yml

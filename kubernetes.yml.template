@@ -49,10 +49,10 @@ metadata:
     app: msa-apidev-mp
     commit: ${WERCKER_GIT_COMMIT}
 spec:
-  type: NodePort
-  selector:
-    app: msa-apidev-mp
   ports:
   - port: 30000
     targetPort: 8080
     name: http
+  selector:
+    app: msa-apidev-mp
+  type: LoadBalancer

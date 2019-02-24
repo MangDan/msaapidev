@@ -47,7 +47,8 @@ deploy-to-cluster:
 
   steps:
   - bash-template
-
+    working-dir: /pipeline/source
+    
   - kubectl:
       name: delete secret
       server: $KUBERNETES_MASTER

@@ -4,7 +4,7 @@ box:
   id: jimador/docker-jdk-8-maven-node
   ports:
     - 8080
-
+ 
 #Build our application using Maven, just as we always have
 build:
   steps:
